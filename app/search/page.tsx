@@ -82,7 +82,7 @@ export default function SearchPage() {
         setGenerating((prev) => ({ ...prev, [postId]: false }))
       }
     },
-    [posts, query, user, isSignedIn, freeReplyUsed]
+    [posts, query, user, isSignedIn]
   )
 
   const handleSubscribe = useCallback(async () => {
