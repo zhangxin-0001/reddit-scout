@@ -27,7 +27,6 @@ export default function SearchPage() {
   const [generating, setGenerating] = useState<Record<string, boolean>>({})
   const [loading, setLoading] = useState(true)
   const [showPaywall, setShowPaywall] = useState(false)
-  const [freeReplyUsed, setFreeReplyUsed] = useState(false)
 
   useEffect(() => {
     if (!query) return
@@ -53,15 +52,6 @@ export default function SearchPage() {
       const post = posts.find((p) => p.id === postId)
       if (!post) return
 
-      // Check if user already used their free reply
-      if (!isSignedIn) {
-        // For non-logged-in users, allow 1 free reply stored in local state
-        if (freeReplyUsed) {
-          setShowPaywall(true)
-          return
-        }
-      }
-
       setGenerating((prev) => ({ ...prev, [postId]: true }))
 
       try {
@@ -86,7 +76,6 @@ export default function SearchPage() {
         }
 
         setReplies((prev) => ({ ...prev, [postId]: data.reply }))
-        setFreeReplyUsed(true)
       } catch (err) {
         console.error('Generate reply failed:', err)
       } finally {

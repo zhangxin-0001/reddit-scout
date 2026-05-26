@@ -13,10 +13,10 @@ export async function POST(request: NextRequest) {
   // Check free reply limit for non-anonymous users
   const freeCount = await getFreeReplyCount(userId)
 
-  if (freeCount >= 1) {
+  if (freeCount >= 10) {
     return NextResponse.json(
       {
-        error: 'Free reply limit reached. Please upgrade to Pro.',
+        error: 'Free reply limit reached (max 10). Please upgrade to Pro.',
         paywall: true,
       },
       { status: 402 }

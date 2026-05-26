@@ -15,21 +15,21 @@ export default function Paywall({ onSubscribe, onClose }: PaywallProps) {
         >
           ✕
         </button>
-        <div className="text-5xl mb-4">🔒</div>
+        <div className="text-5xl mb-4">🚀</div>
         <h3 className="text-2xl font-bold text-white mb-3">
-          免费查看 1 条话术
+          Upgrade to Pro
         </h3>
         <p className="text-gray-400 mb-6 leading-relaxed">
-          每月仅需 <span className="text-primary font-semibold">$9 美元</span>，
-          即可解锁无限条 AI 生成的高情商营销话术，并可导出为 CSV 表格。
+          You&apos;ve used all <span className="text-primary font-semibold">10 free replies</span>.
+          Upgrade to Pro for unlimited AI-generated replies and CSV export.
         </p>
 
         <ul className="text-left text-gray-300 text-sm space-y-2 mb-8">
           {[
-            '无限生成 Reddit 回复话术',
-            '导出为 CSV / 表格',
-            '保存搜索历史',
-            '7 天免费试用',
+            'Unlimited Reddit reply generation',
+            'Export to CSV',
+            'Search history saved',
+            '7-day free trial',
           ].map((item) => (
             <li key={item} className="flex items-center gap-2">
               <span className="text-green-400">✓</span> {item}
@@ -41,11 +41,11 @@ export default function Paywall({ onSubscribe, onClose }: PaywallProps) {
           onClick={onSubscribe}
           className="w-full py-3 bg-primary text-white rounded-xl font-semibold hover:bg-primary-hover transition-colors cursor-pointer"
         >
-          立即订阅 — $9/月
+          Subscribe — $9/month
         </button>
 
         <p className="text-xs text-gray-500 mt-4">
-          7 天免费试用 · 随时取消 · 安全支付由 Stripe 处理
+          7-day free trial · Cancel anytime · Secure payment by Stripe
         </p>
       </div>
     </div>
